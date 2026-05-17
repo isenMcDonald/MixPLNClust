@@ -8,7 +8,8 @@
 #' @param group_labels Optional. A vector of integers identifying the true cluster each row belongs to.
 #' @param parameter_space Optional. Matrix of underlying parameter space that data was generated from.
 #' @param max_iter Positive double. Max number of iterations to test. Default maximum for iterations is \eqn{1000}.
-#' @param step_size Positive double. Step size for gradient descent method. Default step size is \eqn{0.0005}
+#' @param step_size Positive double. Step size for gradient descent method. Default step size is \eqn{0.0005}.
+#' @param eps Positive double. Threshold to determine early stopping based off of aitken's acceleration. Default epsilon is \eqn{0.01}.
 #' @param calc_norm_factors Boolean. Should the data be scaled to account for different sampling depths?
 #' @param custom_lib_mat Optional. Numerical vector of length d. Used in place of calc_norm_factors if user wants to specify a predefined scaling vector.
 #' @param init Method for cluster initialization. Default is "kmmeans" to use \eqn{k}-missing-means. Other option is "rand", which randomly assigns all rows to 1 of the \eqn{G} groups with equal probability. Useful to prevent potential computational issues with large number of clusters. 
@@ -41,7 +42,7 @@
 #' mclust::map(PLNClust_results[[2]]$z)
 #' @export
 MixPLNClust_R <- function(count_matrix,G,group_labels=NULL,parameter_space=NULL,
-                          max_iter=1000, step_size = 0.0005,
+                          max_iter=1000, step_size = 0.0005, eps = 0.01,
                           calc_norm_factors = FALSE, custom_lib_mat = NULL,
                           init = "kmmeans"){
   
@@ -425,7 +426,7 @@ MixPLNClust_R <- function(count_matrix,G,group_labels=NULL,parameter_space=NULL,
         a <- (loglik[it] - loglik[it - 1L]) / (loglik[it - 1L] - loglik[it - 2L])
         add_to <- (1L / (1L - a)) * (loglik[it] - loglik[it - 1L])
         a_loglik[it] <- loglik[it - 1L] + add_to
-        if (abs(a_loglik[it] - loglik[it - 1L]) < 0.01) {
+        if (abs(a_loglik[it] - loglik[it - 1L]) < eps) {
           checks <- 1L
           exit_code <- "Aitken's acceleration converged"
         }

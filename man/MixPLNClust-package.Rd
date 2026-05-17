@@ -1,6 +1,5 @@
 \name{MixPLNClust-package}
 \alias{MixPLNClust-package}
-\alias{MixPLNClust}
 \docType{package}
 \title{\packageTitle{MixPLNClust}}
 \description{\packageDescription{MixPLNClust}}

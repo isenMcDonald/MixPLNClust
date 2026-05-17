@@ -11,6 +11,7 @@ MixPLNClust(
   parameter_space = NULL,
   max_iter = 1000,
   step_size = 5e-04,
+  eps = 0.01,
   calc_norm_factors = FALSE,
   custom_lib_mat = NULL,
   init = "kmmeans"
@@ -27,7 +28,9 @@ MixPLNClust(
 
 \item{max_iter}{Positive double. Max number of iterations to test. Default maximum for iterations is \eqn{1000}.}
 
-\item{step_size}{Positive double. Step size for gradient descent method. Default step size is \eqn{0.0005}}
+\item{step_size}{Positive double. Step size for gradient descent method. Default step size is \eqn{0.0005}.}
+
+\item{eps}{Positive double. Threshold to determine early stopping based off of aitken's acceleration. Default epsilon is \eqn{0.01}.}
 
 \item{calc_norm_factors}{Boolean. Should the data be scaled to account for different sampling depths?}
 

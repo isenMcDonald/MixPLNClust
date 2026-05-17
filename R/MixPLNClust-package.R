@@ -1,7 +1,4 @@
-#' MixPLNClust package
-#'
-#' Method for clustering multivariate discrete count data with missing values, modeled as mixtures of multivariate Poisson log-normal (MPLN) distributions. Uses an EM based approach to estimate latent Gaussian space means and covariance matrices.
-#'
-#' @name MixPLNClust-package
-#' @keywords internal
-"_PACKAGE"
+# Package-level documentation is maintained manually in man/MixPLNClust-package.Rd.
+# The "_PACKAGE" sentinel has been removed to prevent roxygen2 from regenerating
+# that file and re-adding \alias{MixPLNClust}, which would redirect ?MixPLNClust
+# to the package page instead of the function page.

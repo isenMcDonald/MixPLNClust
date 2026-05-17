@@ -176,15 +176,16 @@ BEGIN_RCPP
 END_RCPP
 }
 // aitkens_accel
-Rcpp::List aitkens_accel(int it, arma::vec loglik, arma::vec a_loglik);
-RcppExport SEXP _MixPLNClust_aitkens_accel(SEXP itSEXP, SEXP loglikSEXP, SEXP a_loglikSEXP) {
+Rcpp::List aitkens_accel(int it, arma::vec loglik, arma::vec a_loglik, const double eps);
+RcppExport SEXP _MixPLNClust_aitkens_accel(SEXP itSEXP, SEXP loglikSEXP, SEXP a_loglikSEXP, SEXP epsSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< int >::type it(itSEXP);
     Rcpp::traits::input_parameter< arma::vec >::type loglik(loglikSEXP);
     Rcpp::traits::input_parameter< arma::vec >::type a_loglik(a_loglikSEXP);
-    rcpp_result_gen = Rcpp::wrap(aitkens_accel(it, loglik, a_loglik));
+    Rcpp::traits::input_parameter< const double >::type eps(epsSEXP);
+    rcpp_result_gen = Rcpp::wrap(aitkens_accel(it, loglik, a_loglik, eps));
     return rcpp_result_gen;
 END_RCPP
 }

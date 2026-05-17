@@ -41,7 +41,7 @@ compute_F_matrices <- function(S, m, O_list, mu, iOsigO, O_mat, Y, pi_g) {
     .Call(`_MixPLNClust_compute_F_matrices`, S, m, O_list, mu, iOsigO, O_mat, Y, pi_g)
 }
 
-aitkens_accel <- function(it, loglik, a_loglik) {
-    .Call(`_MixPLNClust_aitkens_accel`, it, loglik, a_loglik)
+aitkens_accel <- function(it, loglik, a_loglik, eps) {
+    .Call(`_MixPLNClust_aitkens_accel`, it, loglik, a_loglik, eps)
 }
 

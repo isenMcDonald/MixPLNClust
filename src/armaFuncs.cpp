@@ -331,7 +331,7 @@ Rcpp::List compute_F_matrices(const Rcpp::List& S, const Rcpp::List& m, const Rc
 }
 
 // [[Rcpp::export]]
-Rcpp::List aitkens_accel(int it, arma::vec loglik, arma::vec a_loglik) {
+Rcpp::List aitkens_accel(int it, arma::vec loglik, arma::vec a_loglik, const double eps) {
     int checks = 0;
     std::string exit_code = "";
     it = it - 1;
@@ -356,7 +356,7 @@ Rcpp::List aitkens_accel(int it, arma::vec loglik, arma::vec a_loglik) {
 
             a_loglik[it] = loglik[it - 1] + add_to;
 
-            if (std::abs(a_loglik[it] - loglik[it - 1]) < 0.01) {
+            if (std::abs(a_loglik[it] - loglik[it - 1]) < eps) {
                 checks = 1;
                 exit_code = "Aitken's acceleration converged";
             }
