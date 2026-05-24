@@ -15,7 +15,7 @@ BiocManager::install("edgeR")
 ```{r}
 if (!require("devtools", quietly = TRUE))
     install.packages("devtools")
-devtools::install_github("kevingiddings/MixPLNClust")
+devtools::install_github("isenMcDonald/MixPLNClust")
 ```
 
 ## Vignette
