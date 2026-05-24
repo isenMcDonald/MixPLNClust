@@ -8,12 +8,12 @@ message: >-
   metadata from this file.
 type: software
 authors:
-  - given-names: Kevin
-    family-names: Giddings
-    email: kevingiddings@cmail.carleton.ca
   - given-names: Isen
     family-names: McDonald
     email: isenmcdonald@cmail.carleton.ca
+  - given-names: Kevin
+    family-names: Giddings
+    email: kevingiddings@cmail.carleton.ca
   - given-names: Utkarsh
     family-names: Dang
     email: utkarshdang@cunet.carleton.ca
@@ -22,4 +22,4 @@ authors:
     email: sanjeenadang@cunet.carleton.ca
 license: GPL-3.0
 version: 1.0.0
-date-released: '2025-10-29'
+date-released: '2026-05-24'
